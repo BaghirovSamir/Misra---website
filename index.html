@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MISRA LLC | Financial Consulting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="MISRA LLC offers reliable, professional financial consulting, tax, and accounting services to businesses of all sizes.">
+    <meta name="keywords" content="MISRA, Finance, Consulting, Tax, Accounting, Azerbaijan, Financial Reports, Business Advisory">
+    <style>
+        :root {
+            --primary: #393890;
+            --accent: #f6f6fa;
+            --text: #22223b;
+            --secondary: #5f6caf;
+            --highlight: #f0c808;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--accent);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(57, 56, 144, 0.07);
+            padding: 32px 10px 20px 10px;
+            position: relative;
+        }
+        .logo {
+            width: 280px;
+            max-width: 90vw;
+            margin-bottom: 10px;
+            transition: transform 0.22s;
+        }
+        .logo:hover {
+            transform: scale(1.04) rotate(-1deg);
+        }
+        .lang-select {
+            position: absolute;
+            top: 18px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            z-index: 100;
+        }
+        .lang-select label {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .lang-select select {
+            margin-left: 6px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+            font-size: 1rem;
+            color: #393890;
+            background: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .slogan {
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 32px;
+            text-decoration: none;
+            margin-top: 18px;
+            box-shadow: 0 4px 16px 0 rgba(57,56,144,0.10);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover,
+        .cta-button:focus {
+            background: #22223b;
+            color: var(--highlight);
+            box-shadow: 0 6px 22px 0 rgba(57,56,144,0.14);
+        }
+        nav {
+            background: var(--primary);
+            text-align: center;
+            padding: 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 24px;
+            display: inline-block;
+            padding: 16px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.15s, border-bottom 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover,
+        nav a:focus {
+            color: var(--highlight);
+            border-bottom: 2px solid var(--highlight);
+        }
+        nav .nav-link {
+            display: none;
+        }
+        nav .nav-link.active {
+            display: inline-block;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto 60px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px 0 rgba(57,56,144,0.07);
+            margin-bottom: 40px;
+            padding: 32px 24px;
+            position: relative;
+        }
+        section h2 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--highlight);
+            border-radius: 2px;
+            margin: 16px 0 28px 0;
+        }
+        .section-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 36px;
+        }
+        .section-image {
+            flex: 1 1 220px;
+            max-width: 290px;
+            min-width: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px 0 rgba(57,56,144,0.06);
+            background: #fafaff;
+        }
+        .section-image img,
+        .portfolio-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.25s cubic-bezier(.21,.6,.45,1.36), box-shadow 0.22s;
+            will-change: transform;
+        }
+        .section-image img:hover,
+        .portfolio-image img:hover {
+            transform: scale(1.04) rotate(-1deg);
+            box-shadow: 0 8px 32px 0 rgba(57,56,144,0.11);
+        }
+        .section-text {
+            flex: 2 1 280px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        ul.services-list {
+            list-style: disc inside;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            padding-left: 1em;
+        }
+        .portfolio-placeholder {
+            color: var(--secondary);
+            font-style: italic;
+            margin-top: 10px;
+        }
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .contact-info strong {
+            color: var(--primary);
+        }
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .portfolio-image {
+            flex: 1 1 290px;
+            min-width: 180px;
+            max-width: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px 0 rgba(57,56,144,0.06);
+            background: #fafaff;
+        }
+        .testimonial-section {
+            margin-top: 38px;
+        }
+        .testimonials {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+        .testimonial-card {
+            background: #f6f6fa;
+            border-radius: 7px;
+            padding: 18px 20px 14px 20px;
+            box-shadow: 0 2px 8px 0 rgba(57,56,144,0.08);
+            flex: 1 1 230px;
+            min-width: 180px;
+            max-width: 350px;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1rem;
+            margin: 0 0 10px 0;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.03rem;
+        }
+        @media (max-width: 750px) {
+            .section-flex, .portfolio-grid, .testimonials { flex-direction: column; }
+            section { padding: 20px 8px; }
+            nav a { margin: 0 10px; font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .logo { width: 90vw; }
+            footer { font-size: 0.95rem; }
+            section h2 { font-size: 1.3rem; }
+        }
+        footer {
+            background: #fff;
+            color: var(--primary);
+            text-align: center;
+            padding: 22px 10px 10px 10px;
+            font-size: 1rem;
+            border-top: 1px solid #e6e6ec;
+            box-shadow: 0 -2px 12px 0 rgba(57,56,144,0.06);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="MISRA LLC Logo" class="logo">
+        <!-- Language Selector -->
+        <div class="lang-select">
+            <label for="language">🌐</label>
+            <select id="language">
+                <option value="az">AZ</option>
+                <option value="en" selected>EN</option>
+            </select>
+        </div>
+        <div class="slogan lang lang-en" style="display:;">Your numbers, our responsibility.</div>
+        <div class="slogan lang lang-az" style="display:none;">Sizin rəqəmləriniz, bizim məsuliyyətimizdir.</div>
+        <a href="#contact" class="cta-button lang lang-en" style="display:;">Contact Us</a>
+        <a href="#contact" class="cta-button lang lang-az" style="display:none;">Bizimlə əlaqə</a>
+    </header>
+    <nav>
+        <!-- EN Navigation -->
+        <a href="#about" class="nav-link lang lang-en active">About Us</a>
+        <a href="#services" class="nav-link lang lang-en active">Services</a>
+        <a href="#portfolio" class="nav-link lang lang-en active">Portfolio</a>
+        <a href="#contact" class="nav-link lang lang-en active">Contact</a>
+        <!-- AZ Navigation -->
+        <a href="#about" class="nav-link lang lang-az">Haqqımızda</a>
+        <a href="#services" class="nav-link lang lang-az">Xidmətlər</a>
+        <a href="#portfolio" class="nav-link lang lang-az">Portfel</a>
+        <a href="#contact" class="nav-link lang lang-az">Əlaqə</a>
+    </nav>
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="lang lang-en" style="display:;">About Us</h2>
+            <h2 class="lang lang-az" style="display:none;">Haqqımızda</h2>
+            <div class="divider"></div>
+            <!-- English -->
+            <div class="section-flex lang lang-en" style="display:;">
+                <div class="section-image">
+                    <img src="photo2.jpg" alt="About MISRA LLC - Team at work">
+                </div>
+                <div class="section-text">
+                    At <strong>MISRA LLC</strong>, we specialize in delivering reliable, professional financial consulting services to businesses of all sizes. Our team partners closely with clients to manage their accounting processes, prepare and submit tax reports, and generate clear, actionable financial reports for management.
+                </div>
+            </div>
+            <!-- Azerbaijani -->
+            <div class="section-flex lang lang-az" style="display:none;">
+                <div class="section-image">
+                    <img src="photo2.jpg" alt="MISRA MMC haqqında - Komanda iş başında">
+                </div>
+                <div class="section-text">
+                    <strong>MISRA MMC</strong> olaraq, hər ölçüdə biznes üçün etibarlı və peşəkar maliyyə məsləhət xidmətləri göstəririk. Komandamız müştərilərlə sıx əməkdaşlıq edərək onların mühasibatlıq proseslərini idarə edir, vergi hesabatlarını hazırlayır və rəhbərlik üçün aydın, praktik maliyyə hesabatları hazırlayır.
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="lang lang-en" style="display:;">Our Services</h2>
+            <h2 class="lang lang-az" style="display:none;">Xidmətlərimiz</h2>
+            <div class="divider"></div>
+            <!-- EN -->
+            <div class="section-flex lang lang-en" style="display:;">
+                <div class="section-image">
+                    <img src="photo.jpg" alt="Financial services concept">
+                </div>
+                <div class="section-text">
+                    <ul class="services-list">
+                        <li>Financial Planning &amp; Analysis</li>
+                        <li>Investment Consulting</li>
+                        <li>Risk Management</li>
+                        <li>Business Advisory</li>
+                        <li>Accounting Process Management</li>
+                        <li>Tax Report Preparation &amp; Submission</li>
+                        <li>Management Financial Reporting</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- AZ -->
+            <div class="section-flex lang lang-az" style="display:none;">
+                <div class="section-image">
+                    <img src="photo.jpg" alt="Maliyyə xidmətləri konsepti">
+                </div>
+                <div class="section-text">
+                    <ul class="services-list">
+                        <li>Maliyyə Planlaşdırılması və Təhlili</li>
+                        <li>İnvestisiya Məsləhətləri</li>
+                        <li>Risklərin İdarə Edilməsi</li>
+                        <li>Biznes Məsləhətləri</li>
+                        <li>Mühasibat Proseslərinin İdarə Edilməsi</li>
+                        <li>Vergi Hesabatlarının Hazırlanması və Təqdimatı</li>
+                        <li>Rəhbərlik üçün Maliyyə Hesabatları</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2 class="lang lang-en" style="display:;">Portfolio</h2>
+            <h2 class="lang lang-az" style="display:none;">Portfel</h2>
+            <div class="divider"></div>
+            <!-- EN -->
+            <div class="portfolio-grid lang lang-en" style="display:;">
+                <div class="portfolio-image">
+                    <img src="photo4.jpg" alt="MISRA LLC portfolio example">
+                </div>
+                <div class="section-text">
+                    Portfolio details and client projects coming soon. (You can add project images/descriptions here.)
+                </div>
+            </div>
+            <!-- AZ -->
+            <div class="portfolio-grid lang lang-az" style="display:none;">
+                <div class="portfolio-image">
+                    <img src="photo4.jpg" alt="MISRA MMC portfel nümunəsi">
+                </div>
+                <div class="section-text">
+                    Portfel və müştəri layihələri tezliklə burada paylaşılacaq. (Bura layihə şəkilləri və təsvirləri əlavə edə bilərsiniz.)
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials -->
+        <section class="testimonial-section">
+            <h2 class="lang lang-en" style="display:;">Client Testimonials</h2>
+            <h2 class="lang lang-az" style="display:none;">Müştəri Rəyləri</h2>
+            <div class="divider"></div>
+            <div class="testimonials lang lang-en" style="display:;">
+                <div class="testimonial-card">
+                    <p>"MISRA LLC brought clarity and order to our finances. Their expertise in tax and reporting is unmatched."</p>
+                    <div class="author">— A. Rustamov, CEO</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Professional, responsive, and knowledgeable. Highly recommended for any business looking for financial guidance."</p>
+                    <div class="author">— L. Mammadli, Entrepreneur</div>
+                </div>
+            </div>
+            <div class="testimonials lang lang-az" style="display:none;">
+                <div class="testimonial-card">
+                    <p>"MISRA MMC maliyyəmizdə şəffaflıq və nizam yaratdı. Onların vergi və hesabat sahəsində təcrübəsi misilsizdir."</p>
+                    <div class="author">— A. Rüstəmov, CEO</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Peşəkar, çevik və bilikli komandadır. Maliyyə məsləhəti axtaran hər bir biznes üçün tövsiyə edirəm."</p>
+                    <div class="author">— L. Məmmədli, Sahibkar</div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="lang lang-en" style="display:;">Contact Us</h2>
+            <h2 class="lang lang-az" style="display:none;">Bizimlə Əlaqə</h2>
+            <div class="divider"></div>
+            <!-- EN -->
+            <div class="section-flex lang lang-en" style="display:;">
+                <div class="section-image">
+                    <img src="photo3.jpg" alt="Contact MISRA LLC">
+                </div>
+                <div class="section-text contact-info">
+                    <div><strong>Email:</strong> <a href="mailto:Info@misra.az">Info@misra.az</a></div>
+                    <div><strong>Mobile:</strong> <a href="tel:+994555009550">+994 55 500 95 50</a></div>
+                </div>
+            </div>
+            <!-- AZ -->
+            <div class="section-flex lang lang-az" style="display:none;">
+                <div class="section-image">
+                    <img src="photo3.jpg" alt="MISRA MMC ilə əlaqə">
+                </div>
+                <div class="section-text contact-info">
+                    <div><strong>E-poçt:</strong> <a href="mailto:Info@misra.az">Info@misra.az</a></div>
+                    <div><strong>Mobil:</strong> <a href="tel:+994555009550">+994 55 500 95 50</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <span class="lang lang-en" style="display:;">&copy; 2025 MISRA LLC. All rights reserved.</span>
+        <span class="lang lang-az" style="display:none;">&copy; 2025 MISRA MMC. Bütün hüquqlar qorunur.</span>
+    </footer>
+    <script>
+    // Simple language switcher for static bilingual site
+    function setLanguage(lang) {
+        document.querySelectorAll('.lang').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('.lang-' + lang).forEach(function(el) {
+            el.style.display = '';
+        });
+        // nav links
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+            link.classList.remove('active');
+        });
+        document.querySelectorAll('.nav-link.lang-' + lang).forEach(function(link) {
+            link.classList.add('active');
+        });
+    }
+    document.getElementById('language').addEventListener('change', function() {
+        setLanguage(this.value);
+    });
+    // Set initial language based on default selection
+    document.addEventListener('DOMContentLoaded', function(){
+        setLanguage(document.getElementById('language').value);
+    });
+    </script>
+</body>
+</html>
